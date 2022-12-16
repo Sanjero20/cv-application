@@ -7,6 +7,7 @@ export class Form extends Component {
 
     this.inputHandler.bind();
     this.createCV.bind();
+    this.editValues = this.props.editValues;
 
     this.state = {
       name: '',
@@ -27,15 +28,15 @@ export class Form extends Component {
   createCV = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.editValues(this.state);
   };
 
   render() {
     return (
-      <form onSubmit={this.createCV} id="cv-builder">
+      <form id="cv-builder">
         <Personal inputHandler={this.inputHandler}></Personal>
         {/* Educational Experience */}
         {/* Practical Experience */}
-        <button type="submit">Create</button>
       </form>
     );
   }
