@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Personal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { inputHandler } = this.props;
 
@@ -16,13 +12,18 @@ class Personal extends Component {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" onChange={inputHandler} />
+          <label htmlFor="address">Address</label>
+          <input type="text" id="address" onChange={inputHandler} />
         </fieldset>
 
         <fieldset>
           <label htmlFor="contact">Contact Number</label>
           <input type="tel" id="contact" onChange={inputHandler} />
+        </fieldset>
+
+        <fieldset>
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" onChange={inputHandler} />
         </fieldset>
       </div>
     );

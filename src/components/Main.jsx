@@ -12,6 +12,7 @@ export class Main extends Component {
       name: '',
       email: '',
       contact: '',
+      address: '',
       education: [],
       workExperience: [],
     };
@@ -27,7 +28,7 @@ export class Main extends Component {
   render() {
     return (
       <main>
-        <form onChange={() => this.editValues(this.state)} id="cv-builder">
+        <form id="cv-builder">
           <Personal inputHandler={this.inputHandler}></Personal>
           {/* Educational Experience */}
           {/* Practical Experience */}
