@@ -29,4 +29,4 @@ class Personal extends Component {
   }
 }
 
-export { Personal };
+export default Personal;
