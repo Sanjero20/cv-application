@@ -48,8 +48,14 @@ fieldset {
   flex-direction: column;
 }
 
+textarea,
 input {
   padding: 0.25em;
+}
+
+textarea {
+  height: 4em;
+  resize: none;
 }
 
 label {

@@ -4,10 +4,6 @@ import '../styles/Resume.css';
 import PersonalDisplay from './display/PersonalDisplay';
 
 class Resume extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { personalInfo } = this.props.data;
 

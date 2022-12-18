@@ -8,17 +8,17 @@ class PersonalDisplay extends Component {
 
   renderPersonalInfo() {
     const info = Object.values(this.props.data);
-    const personalInfo = info.filter((el, index) => index > 0); // filter name
+    const personalInfo = info.slice(1, 4);
     return personalInfo.map((info, index) => (
-      <>
-        <li key={index}>{info}</li>
+      <React.Fragment key={index}>
+        <li>{info}</li>
         <hr className="separator" />
-      </>
+      </React.Fragment>
     ));
   }
 
   render() {
-    const { name, address, contact, email } = this.props.data;
+    const { name, description } = this.props.data;
 
     return (
       <>
@@ -26,7 +26,7 @@ class PersonalDisplay extends Component {
         <ul className="personal-info">{this.renderPersonalInfo()}</ul>
         <h3 className="title">Description</h3>
         <hr />
-        <p className="description"> {} </p>
+        <p className="description"> {description} </p>
       </>
     );
   }

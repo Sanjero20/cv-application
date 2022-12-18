@@ -25,6 +25,11 @@ class Personal extends Component {
           <label htmlFor="email">Email</label>
           <input type="email" id="email" onChange={inputHandler} />
         </fieldset>
+
+        <fieldset>
+          <label htmlFor="description">Tell something about yourself</label>
+          <textarea id="description" onChange={inputHandler}></textarea>
+        </fieldset>
       </div>
     );
   }

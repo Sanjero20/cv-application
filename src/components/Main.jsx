@@ -14,6 +14,7 @@ export class Main extends Component {
         address: '',
         contact: '',
         email: '',
+        description: '',
       },
       education: [],
       workExperience: [],

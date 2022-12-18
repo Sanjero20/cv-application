@@ -1,6 +1,7 @@
 :root {
   --title-size: 18px;
   --font-size: 11px;
+  --left-indentation: 1em;
 }
 
 .Resume {
@@ -10,10 +11,25 @@
   gap: 0.2em;
 }
 
+p {
+  word-wrap: break-word;
+}
+
 ul {
   list-style-type: none;
 }
 
+/* Separator Stylings  */
+hr {
+  border-top: 1px solid black;
+}
+
+.separator {
+  border-left: 0px;
+  border-right: 1px solid black;
+}
+
+/* Info list */
 ul.personal-info {
   display: flex;
   gap: 0.25em;
@@ -27,7 +43,7 @@ ul.personal-info > li {
 
 .name {
   font-size: 25px;
-  height: 1.05em;
+  height: 1.1em;
 }
 
 .title {
@@ -36,13 +52,5 @@ ul.personal-info > li {
 
 .description {
   font-size: var(--font-size);
-}
-
-hr {
-  border-top: 1px solid black;
-}
-
-.separator {
-  border-left: 0px;
-  border-right: 1px solid black;
+  margin-left: var(--left-indentation);
 }
