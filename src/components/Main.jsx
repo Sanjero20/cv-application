@@ -9,10 +9,12 @@ export class Main extends Component {
     this.inputHandler.bind();
 
     this.state = {
-      name: '',
-      email: '',
-      contact: '',
-      address: '',
+      personalInfo: {
+        name: '',
+        address: '',
+        contact: '',
+        email: '',
+      },
       education: [],
       workExperience: [],
     };
@@ -21,7 +23,10 @@ export class Main extends Component {
   inputHandler = (e) => {
     const target = e.target.id;
     this.setState({
-      [target]: e.target.value,
+      personalInfo: {
+        ...this.state.personalInfo,
+        [target]: e.target.value,
+      },
     });
   };
 
