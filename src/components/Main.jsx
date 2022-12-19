@@ -4,6 +4,8 @@ import Resume from './Resume';
 import Personal from './form/Personal';
 import Education from './form/Education';
 
+import uniqid from 'uniqid';
+
 import '../styles/Form.css';
 
 export class Main extends Component {
@@ -24,6 +26,7 @@ export class Main extends Component {
       },
       education: [
         {
+          id: uniqid(),
           schoolName: '',
           educationLevel: 'college',
           course: '',
@@ -49,6 +52,7 @@ export class Main extends Component {
   // Education Functions
   addEducField = () => {
     const newValue = {
+      id: uniqid(),
       schoolName: '',
       educationLevel: 'college',
       course: '',
@@ -61,6 +65,14 @@ export class Main extends Component {
     });
   };
 
+  removeEducField = (id) => {
+    const list = this.state.education;
+    const updatedList = list.filter((item) => item.id != id);
+    this.setState({
+      education: updatedList,
+    });
+  };
+
   educationInputHandler = (e, index) => {
     const { name, value, type } = e.target;
     const educations = this.state.education;
@@ -70,15 +82,9 @@ export class Main extends Component {
 
     educations[index][name] = value;
 
-    this.setState(
-      {
-        education: educations,
-      },
-      () => {
-        // console.clear();
-        console.table(this.state.education);
-      }
-    );
+    this.setState({
+      education: educations,
+    });
   };
 
   render() {
@@ -90,6 +96,7 @@ export class Main extends Component {
             education={this.state.education}
             educationInputHandler={this.educationInputHandler}
             addField={this.addEducField}
+            removeField={this.removeEducField}
           />
           {/* Practical Experience */}
         </form>

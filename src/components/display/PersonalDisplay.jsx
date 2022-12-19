@@ -12,9 +12,8 @@ class PersonalDisplay extends Component {
     }
   }
 
-  renderPersonalInfo() {
-    const info = Object.values(this.props.data);
-    const personalInfo = info.slice(1, 4);
+  renderPersonalInfo(info) {
+    const personalInfo = Object.values(info);
     return personalInfo.map((info, index) => (
       <React.Fragment key={index}>
         <li>{info}</li>
@@ -24,16 +23,12 @@ class PersonalDisplay extends Component {
   }
 
   render() {
-    const { name, description } = this.props.data;
+    const { name, description, ...info } = this.props.data;
 
     return (
       <>
-        <h1 className="name"> {name} </h1>
-        <hr />
-
-        <ul className="personal-info">{this.renderPersonalInfo()}</ul>
-
-        <h3 className="title">Description</h3>
+        <h1 className="name"> {name.toUpperCase()} </h1>
+        <ul className="personal-info">{this.renderPersonalInfo(info)}</ul>
         <p className="description"> {description} </p>
       </>
     );

@@ -8,8 +8,8 @@
   font-family: Roboto, 'Open Sans', sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
   height: 100vh;
+  gap: 5px;
 }
 
 p {
@@ -22,10 +22,11 @@ ul {
 
 /* Separator Stylings  */
 hr {
-  border-top: 1px solid black;
+  border-top: 2px solid black;
 }
 
 .separator {
+  height: 0.8em;
   border-left: 0px;
   border-right: 1px solid black;
 }
@@ -33,6 +34,7 @@ hr {
 /* Info list */
 ul.personal-info {
   display: flex;
+  align-items: center;
   gap: 0.25em;
 }
 
@@ -52,5 +54,4 @@ ul.personal-info > li {
 
 .description {
   font-size: var(--font-size);
-  margin-left: var(--left-indentation);
 }

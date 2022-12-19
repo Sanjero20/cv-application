@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export class Education extends Component {
   constructor(props) {
     super(props);
+
     this.addField = this.props.addField;
+    this.removeField = this.props.removeField;
     this.inputHandler = this.props.educationInputHandler;
     this.currentYear = new Date().getFullYear();
   }
@@ -11,6 +13,14 @@ export class Education extends Component {
   renderInputFields = (educationArray) => {
     return educationArray.map((education, index) => (
       <div className="education-field" key={index}>
+        <button
+          type="button"
+          className=" btn-remove"
+          onClick={() => this.removeField(education.id)}
+        >
+          Remove
+        </button>
+
         <fieldset>
           <label htmlFor=""> School Name</label>
           <input

@@ -21,9 +21,6 @@ label {
 }
 
 button {
-  padding: 0.5em 3em;
-  width: fit-content;
-  border-radius: 15px;
   border: 0;
   background-color: var(--primary);
   color: white;
@@ -42,11 +39,26 @@ section.education {
 }
 
 .education-field {
+  position: relative;
   border: 1px solid black;
   padding: 0.5em;
+  padding-top: 1em;
   border-radius: 5px;
 }
 
 .btn-addEducation {
+  padding: 0.5em 3em;
   margin: 0 auto;
+  border-radius: 15px;
+}
+
+.btn-remove {
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 0em;
+  right: 0em;
+}
+
+.btn-remove:hover {
+  background-color: #4e1c1c;
 }
