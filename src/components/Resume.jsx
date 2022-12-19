@@ -10,7 +10,7 @@ class Resume extends Component {
     return (
       <div className="Resume">
         <PersonalDisplay data={personalInfo}></PersonalDisplay>
-        {/* Skills */}
+
         {/* Work Experience */}
         {/* Education  */}
       </div>

@@ -33,7 +33,7 @@ hr {
 ul.personal-info {
   display: flex;
   gap: 0.25em;
-  margin-bottom: 0.5em;
+  /* margin-bottom: 0.5em; */
 }
 
 ul.personal-info > li {

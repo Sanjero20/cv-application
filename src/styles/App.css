@@ -39,6 +39,7 @@ main {
   box-sizing: border-box;
   background-color: white;
   width: 100%;
+  min-height: 100vh;
   padding: 1em;
 }
 
@@ -50,7 +51,7 @@ fieldset {
 
 textarea,
 input {
-  padding: 0.25em;
+  padding: 0.35em;
 }
 
 textarea {
@@ -65,10 +66,5 @@ label {
 @media only screen and (max-width: 800px) {
   main {
     flex-direction: column;
-  }
-
-  .Resume,
-  #cv-builder {
-    min-height: 80vh;
   }
 }

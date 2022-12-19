@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Personal from './form/Personal';
 import Resume from './Resume';
+
+import Personal from './form/Personal';
+import Education from './form/Education';
 
 export class Main extends Component {
   constructor(props) {
@@ -16,7 +18,11 @@ export class Main extends Component {
         email: '',
         description: '',
       },
-      education: [],
+      education: [
+        {
+          schoolName: '',
+        },
+      ],
       workExperience: [],
     };
   }
@@ -31,12 +37,21 @@ export class Main extends Component {
     });
   };
 
+  addEducField = () => {
+    this.setState({
+      education: [...this.state.education, { schoolName: '' }],
+    });
+  };
+
   render() {
     return (
       <main>
         <form id="cv-builder">
-          <Personal inputHandler={this.inputHandler}></Personal>
-          {/* Educational Experience */}
+          <Personal inputHandler={this.inputHandler} />
+          <Education
+            education={this.state.education}
+            addField={this.addEducField}
+          />
           {/* Practical Experience */}
         </form>
         <Resume data={this.state}></Resume>

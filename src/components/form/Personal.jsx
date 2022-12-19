@@ -5,7 +5,9 @@ class Personal extends Component {
     const { inputHandler } = this.props;
 
     return (
-      <div>
+      <section>
+        <h3 className="title">Personal Info</h3>
+
         <fieldset>
           <label htmlFor="name">Name</label>
           <input type="text" id="name" onChange={inputHandler} />
@@ -34,7 +36,7 @@ class Personal extends Component {
             placeholder="Tell something about yourself"
           ></textarea>
         </fieldset>
-      </div>
+      </section>
     );
   }
 }
