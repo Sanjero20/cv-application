@@ -5,7 +5,7 @@ class Personal extends Component {
     const { inputHandler } = this.props;
 
     return (
-      <section>
+      <section className="personal-info">
         <h3 className="title">Personal Info</h3>
 
         <fieldset>

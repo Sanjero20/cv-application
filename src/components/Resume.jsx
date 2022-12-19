@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../styles/Resume.css';
-
 import PersonalDisplay from './display/PersonalDisplay';
+
+import '../styles/Resume.css';
 
 class Resume extends Component {
   render() {
@@ -10,7 +10,6 @@ class Resume extends Component {
     return (
       <div className="Resume">
         <PersonalDisplay data={personalInfo}></PersonalDisplay>
-
         {/* Work Experience */}
         {/* Education  */}
       </div>
