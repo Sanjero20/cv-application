@@ -6,13 +6,19 @@ class PersonalDisplay extends Component {
     this.renderPersonalInfo.bind();
   }
 
+  renderSeparator(index, array) {
+    if (index < array.length - 1) {
+      return <hr className="separator" />;
+    }
+  }
+
   renderPersonalInfo() {
     const info = Object.values(this.props.data);
     const personalInfo = info.slice(1, 4);
     return personalInfo.map((info, index) => (
       <React.Fragment key={index}>
         <li>{info}</li>
-        <hr className="separator" />
+        {this.renderSeparator(index, personalInfo)}
       </React.Fragment>
     ));
   }
@@ -23,9 +29,11 @@ class PersonalDisplay extends Component {
     return (
       <>
         <h1 className="name"> {name} </h1>
-        <ul className="personal-info">{this.renderPersonalInfo()}</ul>
-        <h3 className="title">Description</h3>
         <hr />
+
+        <ul className="personal-info">{this.renderPersonalInfo()}</ul>
+
+        <h3 className="title">Description</h3>
         <p className="description"> {description} </p>
       </>
     );

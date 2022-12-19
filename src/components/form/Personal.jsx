@@ -27,8 +27,12 @@ class Personal extends Component {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="description">Tell something about yourself</label>
-          <textarea id="description" onChange={inputHandler}></textarea>
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            onChange={inputHandler}
+            placeholder="Tell something about yourself"
+          ></textarea>
         </fieldset>
       </div>
     );
