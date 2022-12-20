@@ -26,11 +26,11 @@ class PersonalDisplay extends Component {
     const { name, description, ...info } = this.props.data;
 
     return (
-      <>
+      <section className="resume-personalInfo">
         <h1 className="name"> {name.toUpperCase()} </h1>
         <ul className="personal-info">{this.renderPersonalInfo(info)}</ul>
         <p className="description"> {description} </p>
-      </>
+      </section>
     );
   }
 }
