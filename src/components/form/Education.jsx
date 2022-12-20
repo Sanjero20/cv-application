@@ -83,10 +83,10 @@ export class Education extends Component {
 
     return (
       <section className="education">
-        <h3 className="title">Education</h3>
-
+        <h3 className="title">
+          Education <hr />
+        </h3>
         {this.renderInputFields(education)}
-
         <button
           type="button"
           className="btn btn-addEducation"

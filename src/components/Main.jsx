@@ -5,9 +5,27 @@ import Personal from './form/Personal';
 import Education from './form/Education';
 
 import uniqid from 'uniqid';
-import { saveToLocalStorage, retrieveFromLocal } from '../modules/saveToLocal';
+import {
+  saveToLocalStorage,
+  retrieveFromLocal,
+  clearStorage,
+} from '../modules/saveToLocal';
 
 import '../styles/Form.css';
+
+const retrievedData = retrieveFromLocal('state');
+
+const defaultState = {
+  personalInfo: {
+    name: '',
+    address: '',
+    contact: '',
+    email: '',
+    description: '',
+  },
+  education: [],
+  workExperience: [],
+};
 
 export class Main extends Component {
   constructor(props) {
@@ -17,22 +35,10 @@ export class Main extends Component {
     this.addEducField.bind();
     this.educationInputHandler.bind();
 
-    const retrievedData = retrieveFromLocal('state');
-
     if (retrievedData) {
       this.state = retrievedData;
     } else {
-      this.state = {
-        personalInfo: {
-          name: '',
-          address: '',
-          contact: '',
-          email: '',
-          description: '',
-        },
-        education: [],
-        workExperience: [],
-      };
+      this.state = defaultState;
 
       saveToLocalStorage('state', this.state);
     }
@@ -104,6 +110,13 @@ export class Main extends Component {
     );
   };
 
+  removeAllState = () => {
+    clearStorage();
+    this.setState({ ...defaultState }, () => {
+      saveToLocalStorage('state', this.state);
+    });
+  };
+
   submitForm = (e) => {
     e.preventDefault();
   };
@@ -123,6 +136,14 @@ export class Main extends Component {
             removeField={this.removeEducField}
           />
           {/* Practical Experience */}
+
+          <button
+            type="button"
+            className="btn btn-clear"
+            onClick={this.removeAllState}
+          >
+            Clear Form
+          </button>
         </form>
         <Resume data={this.state}></Resume>
       </main>

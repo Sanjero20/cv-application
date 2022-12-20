@@ -8,7 +8,9 @@ class Personal extends Component {
 
     return (
       <section className="personal-info">
-        <h3 className="title">Personal Info</h3>
+        <h3 className="title">
+          Personal Info <hr />
+        </h3>
 
         <fieldset>
           <label htmlFor="name">Name</label>

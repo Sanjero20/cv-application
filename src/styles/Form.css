@@ -1,3 +1,7 @@
+form {
+  position: relative;
+}
+
 fieldset {
   width: 100%;
   border: 0;
@@ -28,7 +32,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--dark-grey);
+  background-color: rgb(0, 0, 0);
 }
 
 /* Education section */
@@ -60,5 +64,15 @@ section.education {
 }
 
 .btn-remove:hover {
-  background-color: #4e1c1c;
+  background-color: #cc0101;
+}
+
+.btn-clear {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  min-width: 2em;
+  height: 2em;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
 }
