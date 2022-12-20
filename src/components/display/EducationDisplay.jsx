@@ -34,6 +34,9 @@ class EducationDisplay extends Component {
   render() {
     const education = this.props.data;
 
+    // Will not display Education list if empty list
+    if (education.length <= 0) return;
+
     return (
       <div className="resume-education">
         <h4>

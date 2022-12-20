@@ -30,16 +30,7 @@ export class Main extends Component {
           email: '',
           description: '',
         },
-        education: [
-          {
-            id: uniqid(),
-            schoolName: '',
-            location: '',
-            course: '',
-            fromYr: '',
-            toYr: '',
-          },
-        ],
+        education: [],
         workExperience: [],
       };
 
@@ -113,10 +104,14 @@ export class Main extends Component {
     );
   };
 
+  submitForm = (e) => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <main>
-        <form id="cv-builder">
+        <form onSubmit={this.submitForm} id="cv-builder">
           <Personal
             personalInfo={this.state.personalInfo}
             inputHandler={this.inputHandler}

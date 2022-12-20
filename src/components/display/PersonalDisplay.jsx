@@ -14,10 +14,14 @@ class PersonalDisplay extends Component {
 
   renderPersonalInfo(info) {
     const personalInfo = Object.values(info);
-    return personalInfo.map((info, index) => (
+
+    // Filter out empty values
+    const filtered = personalInfo.filter((info) => info != '');
+
+    return filtered.map((info, index) => (
       <React.Fragment key={index}>
         <li>{info}</li>
-        {this.renderSeparator(index, personalInfo)}
+        {this.renderSeparator(index, filtered)}
       </React.Fragment>
     ));
   }
