@@ -34,7 +34,7 @@ export class Main extends Component {
           {
             id: uniqid(),
             schoolName: '',
-            educationLevel: 'college',
+            location: '',
             course: '',
             fromYr: '',
             toYr: '',
@@ -68,7 +68,7 @@ export class Main extends Component {
     const newValue = {
       id: uniqid(),
       schoolName: '',
-      educationLevel: 'College',
+      location: '',
       course: '',
       fromYr: '',
       toYr: '',

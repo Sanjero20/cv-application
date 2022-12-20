@@ -24,22 +24,16 @@ export class Education extends Component {
 
         <div className="flex">
           <fieldset>
-            <label htmlFor="">Education Level</label>
-            <select
-              name="educationLevel"
-              id=""
-              value={education.educationLevel}
+            <label htmlFor="">Location </label>
+            <input
+              name="location"
+              value={education.location}
               onChange={(e) => this.inputHandler(e, index)}
-            >
-              <option value="College">College</option>
-              <option value="Senior High School">Senior High School</option>
-              <option value="Highschool">Junior High School</option>
-              <option value="Elementary">Elementary</option>
-            </select>
+            ></input>
           </fieldset>
 
           <fieldset>
-            <label htmlFor="course">Course / Strand</label>
+            <label htmlFor="course">Course / Grade level / Strand</label>
             <input
               name="course"
               type="text"
