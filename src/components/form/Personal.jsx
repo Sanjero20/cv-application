@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class Personal extends Component {
   render() {
     const { inputHandler } = this.props;
+    const { name, address, contact, email, description } =
+      this.props.personalInfo;
 
     return (
       <section className="personal-info">
@@ -10,28 +12,44 @@ class Personal extends Component {
 
         <fieldset>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" onChange={inputHandler} />
+          <input type="text" id="name" value={name} onChange={inputHandler} />
         </fieldset>
 
         <fieldset>
           <label htmlFor="address">Address</label>
-          <input type="text" id="address" onChange={inputHandler} />
+          <input
+            type="text"
+            id="address"
+            value={address}
+            onChange={inputHandler}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="contact">Contact Number</label>
-          <input type="tel" id="contact" onChange={inputHandler} />
+          <input
+            type="tel"
+            id="contact"
+            value={contact}
+            onChange={inputHandler}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" onChange={inputHandler} />
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={inputHandler}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
+            value={description}
             onChange={inputHandler}
             placeholder="Tell something about yourself"
           ></textarea>

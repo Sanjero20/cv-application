@@ -7,20 +7,11 @@ export class Education extends Component {
     this.addField = this.props.addField;
     this.removeField = this.props.removeField;
     this.inputHandler = this.props.educationInputHandler;
-    this.currentYear = new Date().getFullYear();
   }
 
   renderInputFields = (educationArray) => {
     return educationArray.map((education, index) => (
       <div className="education-field" key={index}>
-        <button
-          type="button"
-          className=" btn-remove"
-          onClick={() => this.removeField(education.id)}
-        >
-          Remove
-        </button>
-
         <fieldset>
           <label htmlFor=""> School Name</label>
           <input
@@ -40,10 +31,10 @@ export class Education extends Component {
               value={education.educationLevel}
               onChange={(e) => this.inputHandler(e, index)}
             >
-              <option value="college">College</option>
-              <option value="shs">Senior High School</option>
-              <option value="highschool">Junior High School</option>
-              <option value="elementary">Elementary</option>
+              <option value="College">College</option>
+              <option value="Senior High School">Senior High School</option>
+              <option value="Highschool">Junior High School</option>
+              <option value="Elementary">Elementary</option>
             </select>
           </fieldset>
 
@@ -63,9 +54,7 @@ export class Education extends Component {
             <label> From Year </label>
             <input
               name="fromYr"
-              type="number"
-              min="1970"
-              max={`${this.currentYear}`}
+              type="text"
               placeholder="YYYY"
               value={education.fromYr}
               onChange={(e) => this.inputHandler(e, index)}
@@ -76,15 +65,21 @@ export class Education extends Component {
             <label> To Year</label>
             <input
               name="toYr"
-              type="number"
-              min="1970"
-              max={this.currentYear}
+              type="text"
               placeholder="YYYY or Present"
               value={education.toYr}
               onChange={(e) => this.inputHandler(e, index)}
             />
           </fieldset>
         </div>
+
+        <button
+          type="button"
+          className=" btn-remove"
+          onClick={() => this.removeField(education.id)}
+        >
+          Remove
+        </button>
       </div>
     ));
   };

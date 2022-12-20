@@ -13,7 +13,7 @@
 }
 
 p {
-  word-wrap: break-word;
+  font-size: var(--font-size);
 }
 
 ul {
@@ -54,4 +54,10 @@ ul.personal-info > li {
 
 .description {
   font-size: var(--font-size);
+}
+
+.resume-education {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
 }

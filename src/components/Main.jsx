@@ -5,6 +5,7 @@ import Personal from './form/Personal';
 import Education from './form/Education';
 
 import uniqid from 'uniqid';
+import { saveToLocalStorage, retrieveFromLocal } from '../modules/saveToLocal';
 
 import '../styles/Form.css';
 
@@ -16,37 +17,50 @@ export class Main extends Component {
     this.addEducField.bind();
     this.educationInputHandler.bind();
 
-    this.state = {
-      personalInfo: {
-        name: '',
-        address: '',
-        contact: '',
-        email: '',
-        description: '',
-      },
-      education: [
-        {
-          id: uniqid(),
-          schoolName: '',
-          educationLevel: 'college',
-          course: '',
-          fromYr: '',
-          toYr: '',
+    const retrievedData = retrieveFromLocal('state');
+
+    if (retrievedData) {
+      this.state = retrievedData;
+    } else {
+      this.state = {
+        personalInfo: {
+          name: '',
+          address: '',
+          contact: '',
+          email: '',
+          description: '',
         },
-      ],
-      workExperience: [],
-    };
+        education: [
+          {
+            id: uniqid(),
+            schoolName: '',
+            educationLevel: 'college',
+            course: '',
+            fromYr: '',
+            toYr: '',
+          },
+        ],
+        workExperience: [],
+      };
+
+      saveToLocalStorage('state', this.state);
+    }
   }
 
   // PersonalInfo Functions
   inputHandler = (e) => {
     const target = e.target.id;
-    this.setState({
-      personalInfo: {
-        ...this.state.personalInfo,
-        [target]: e.target.value,
+    this.setState(
+      {
+        personalInfo: {
+          ...this.state.personalInfo,
+          [target]: e.target.value,
+        },
       },
-    });
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
+    );
   };
 
   // Education Functions
@@ -54,44 +68,59 @@ export class Main extends Component {
     const newValue = {
       id: uniqid(),
       schoolName: '',
-      educationLevel: 'college',
+      educationLevel: 'College',
       course: '',
       fromYr: '',
       toYr: '',
     };
 
-    this.setState({
-      education: [...this.state.education, newValue],
-    });
+    this.setState(
+      {
+        education: [...this.state.education, newValue],
+      },
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
+    );
   };
 
   removeEducField = (id) => {
     const list = this.state.education;
     const updatedList = list.filter((item) => item.id != id);
-    this.setState({
-      education: updatedList,
-    });
+    this.setState(
+      {
+        education: updatedList,
+      },
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
+    );
   };
 
   educationInputHandler = (e, index) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     const educations = this.state.education;
-
-    // Ignore if length is more than 4 digits (represents year)
-    if (type == 'number' && value.length > 4) return;
 
     educations[index][name] = value;
 
-    this.setState({
-      education: educations,
-    });
+    this.setState(
+      {
+        education: educations,
+      },
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
+    );
   };
 
   render() {
     return (
       <main>
         <form id="cv-builder">
-          <Personal inputHandler={this.inputHandler} />
+          <Personal
+            personalInfo={this.state.personalInfo}
+            inputHandler={this.inputHandler}
+          />
           <Education
             education={this.state.education}
             educationInputHandler={this.educationInputHandler}
