@@ -16,16 +16,6 @@ import '../styles/Form.css';
 
 const retrievedData = retrieveFromLocal('state');
 
-const newValue = {
-  id: uniqid(),
-  companyName: '',
-  location: '',
-  role: '',
-  roleDescription: '',
-  fromYr: '',
-  toYr: '',
-};
-
 const defaultState = {
   personalInfo: {
     name: '',
@@ -35,7 +25,7 @@ const defaultState = {
     description: '',
   },
   education: [],
-  workExperience: [newValue],
+  workExperience: [],
 };
 
 export class Main extends Component {
@@ -132,9 +122,14 @@ export class Main extends Component {
       toYr: '',
     };
 
-    this.setState({
-      workExperience: [...this.state.workExperience, newValue],
-    });
+    this.setState(
+      {
+        workExperience: [...this.state.workExperience, newValue],
+      },
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
+    );
   };
 
   removeWorkField = (id) => {
