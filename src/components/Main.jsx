@@ -22,7 +22,6 @@ const newValue = {
   location: '',
   role: '',
   roleDescription: '',
-  tasks: [],
   fromYr: '',
   toYr: '',
 };
@@ -51,7 +50,6 @@ export class Main extends Component {
       this.state = retrievedData;
     } else {
       this.state = defaultState;
-
       saveToLocalStorage('state', this.state);
     }
   }
@@ -130,7 +128,6 @@ export class Main extends Component {
       location: '',
       role: '',
       roleDescription: '',
-      tasks: [],
       fromYr: '',
       toYr: '',
     };
@@ -149,6 +146,22 @@ export class Main extends Component {
         workExperience: updatedWorkList,
       },
       () => saveToLocalStorage('state', this.state)
+    );
+  };
+
+  workInputHandler = (e, index) => {
+    const { name, value } = e.target;
+    const workList = this.state.workExperience;
+
+    workList[index][name] = value;
+
+    this.setState(
+      {
+        workExperience: workList,
+      },
+      () => {
+        saveToLocalStorage('state', this.state);
+      }
     );
   };
 
@@ -180,7 +193,7 @@ export class Main extends Component {
           />
           <Work
             workExperience={this.state.workExperience}
-            // workInputHandler={this.workInputHandler}
+            workInputHandler={this.workInputHandler}
             addField={this.addWorkField}
             removeField={this.removeWorkField}
           ></Work>

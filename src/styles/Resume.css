@@ -1,7 +1,8 @@
 :root {
   --title-size: 18px;
-  --font-size: 11px;
-  --left-indentation: 2em;
+  --font-size: 12px;
+  --left-indent-m: 2em;
+  --left-indent-s: 1em;
 }
 
 .Resume {
@@ -11,7 +12,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   padding: 1em;
   box-sizing: border-box;
 }
@@ -40,7 +40,6 @@ ul.personal-info {
   display: flex;
   align-items: center;
   gap: 0.25em;
-  margin-bottom: 0.2em;
 }
 
 ul.personal-info > li {
@@ -63,7 +62,9 @@ ul.personal-info > li {
   font-size: var(--font-size);
 }
 
-.education-list {
+.education-list,
+.work-list {
+  font-size: var(--font-size);
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -75,11 +76,28 @@ ul.personal-info > li {
   gap: 0.25em;
 }
 
-.resume-education p {
-  justify-content: space-between;
-}
-
 .location {
   color: grey;
   font-style: italic;
+}
+
+.Resume section {
+  margin-bottom: 0.5em;
+}
+
+.company-name {
+  font-size: 1.1em;
+}
+
+.indent-s {
+  margin-left: var(--left-indent-s);
+}
+
+.indent-m {
+  margin-left: var(--left-indent-m);
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
 }

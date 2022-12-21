@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
 
-// const newValue = {
-//   id: uniqid(),
-//   companyName: '',
-//   location: '',
-//   role: '',
-//   roleDescription: '',
-//   tasks: [],
-//   fromYr: '',
-//   toYr: '',
-// };
-
 class Work extends Component {
   constructor(props) {
     super(props);
 
     this.addField = this.props.addField;
     this.removeField = this.props.removeField;
+    this.inputHandler = this.props.workInputHandler;
   }
 
   renderInputFields = (workArray) => {
@@ -25,35 +15,66 @@ class Work extends Component {
         <div className="flex">
           <fieldset>
             <label htmlFor="">Company Name</label>
-            <input type="text" name="companyName" />
+            <input
+              type="text"
+              name="companyName"
+              value={work.companyName}
+              onChange={(e) => this.inputHandler(e, index)}
+            />
           </fieldset>
 
           <fieldset>
             <label htmlFor="">Location</label>
-            <input type="text" name="location" />
+            <input
+              type="text"
+              name="location"
+              value={work.location}
+              onChange={(e) => this.inputHandler(e, index)}
+            />
           </fieldset>
         </div>
 
         <div className="flex">
           <fieldset>
             <label htmlFor="">From Year</label>
-            <input type="text" name="fromYr" placeholder="YYYY" />
+            <input
+              type="text"
+              name="fromYr"
+              placeholder="YYYY"
+              value={work.fromYr}
+              onChange={(e) => this.inputHandler(e, index)}
+            />
           </fieldset>
 
           <fieldset>
             <label htmlFor="">To Year</label>
-            <input type="text" name="toYr" placeholder="YYYY" />
+            <input
+              type="text"
+              name="toYr"
+              placeholder="YYYY or Present"
+              value={work.toYr}
+              onChange={(e) => this.inputHandler(e, index)}
+            />
           </fieldset>
         </div>
 
         <fieldset>
           <label htmlFor="">Role </label>
-          <input type="text" name="role" />
+          <input
+            type="text"
+            name="role"
+            value={work.role}
+            onChange={(e) => this.inputHandler(e, index)}
+          />
         </fieldset>
 
         <fieldset>
           <label htmlFor=""> Role Description</label>
-          <textarea name="roleDescription"></textarea>
+          <textarea
+            name="roleDescription"
+            value={work.roleDescription}
+            onChange={(e) => this.inputHandler(e, index)}
+          ></textarea>
         </fieldset>
 
         <button

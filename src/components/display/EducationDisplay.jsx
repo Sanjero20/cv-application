@@ -9,12 +9,12 @@ class EducationDisplay extends Component {
   renderEducation = (list) => {
     return list.map((info) => (
       <div key={info.id}>
-        <p className="flex">
+        <div className="space-between">
           <strong>
             {info.schoolName} {checkLocation(info.location)}
           </strong>
-          <span>{checkYear(info.fromYr, info.toYr)}</span>
-        </p>
+          <p>{checkYear(info.fromYr, info.toYr)}</p>
+        </div>
         <p> {info.course} </p>
       </div>
     ));
