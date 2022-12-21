@@ -16,6 +16,17 @@ import '../styles/Form.css';
 
 const retrievedData = retrieveFromLocal('state');
 
+const newValue = {
+  id: uniqid(),
+  companyName: '',
+  location: '',
+  role: '',
+  roleDescription: '',
+  tasks: [],
+  fromYr: '',
+  toYr: '',
+};
+
 const defaultState = {
   personalInfo: {
     name: '',
@@ -25,7 +36,7 @@ const defaultState = {
     description: '',
   },
   education: [],
-  workExperience: [],
+  workExperience: [newValue],
 };
 
 export class Main extends Component {

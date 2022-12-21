@@ -62,6 +62,13 @@ section.work-experience {
   border-radius: 5px;
 }
 
+/* Button stylings */
+.btn-circle {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+}
+
 .btn-add {
   padding: 0.5em 3em;
   margin: 0 auto;

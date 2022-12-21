@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 
+// const newValue = {
+//   id: uniqid(),
+//   companyName: '',
+//   location: '',
+//   role: '',
+//   roleDescription: '',
+//   tasks: [],
+//   fromYr: '',
+//   toYr: '',
+// };
+
 class Work extends Component {
   constructor(props) {
     super(props);
@@ -11,14 +22,38 @@ class Work extends Component {
   renderInputFields = (workArray) => {
     return workArray.map((work, index) => (
       <div className="work-field" key={work.id}>
+        <div className="flex">
+          <fieldset>
+            <label htmlFor="">Company Name</label>
+            <input type="text" name="companyName" />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="">Location</label>
+            <input type="text" name="location" />
+          </fieldset>
+        </div>
+
+        <div className="flex">
+          <fieldset>
+            <label htmlFor="">From Year</label>
+            <input type="text" name="fromYr" placeholder="YYYY" />
+          </fieldset>
+
+          <fieldset>
+            <label htmlFor="">To Year</label>
+            <input type="text" name="toYr" placeholder="YYYY" />
+          </fieldset>
+        </div>
+
         <fieldset>
-          <label htmlFor="">Company Name</label>
-          <input type="text" name="companyName" />
+          <label htmlFor="">Role </label>
+          <input type="text" name="role" />
         </fieldset>
 
         <fieldset>
-          <label htmlFor="">Location</label>
-          <input type="text" name="location" />
+          <label htmlFor=""> Role Description</label>
+          <textarea name="roleDescription"></textarea>
         </fieldset>
 
         <button
