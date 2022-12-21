@@ -11,7 +11,7 @@ export class Education extends Component {
 
   renderInputFields = (educationArray) => {
     return educationArray.map((education, index) => (
-      <div className="education-field" key={index}>
+      <div className="education-field" key={education.id}>
         <fieldset>
           <label htmlFor=""> School Name</label>
           <input
@@ -87,11 +87,7 @@ export class Education extends Component {
           Education <hr />
         </h3>
         {this.renderInputFields(education)}
-        <button
-          type="button"
-          className="btn btn-addEducation"
-          onClick={this.addField}
-        >
+        <button type="button" className="btn btn-add" onClick={this.addField}>
           Add
         </button>
       </section>

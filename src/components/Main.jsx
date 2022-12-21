@@ -3,6 +3,7 @@ import Resume from './Resume';
 
 import Personal from './form/Personal';
 import Education from './form/Education';
+import Work from './form/Work';
 
 import uniqid from 'uniqid';
 import {
@@ -83,10 +84,10 @@ export class Main extends Component {
 
   removeEducField = (id) => {
     const list = this.state.education;
-    const updatedList = list.filter((item) => item.id != id);
+    const updatedEducList = list.filter((item) => item.id != id);
     this.setState(
       {
-        education: updatedList,
+        education: updatedEducList,
       },
       () => {
         saveToLocalStorage('state', this.state);
@@ -110,6 +111,37 @@ export class Main extends Component {
     );
   };
 
+  // Work Functions
+  addWorkField = () => {
+    const newValue = {
+      id: uniqid(),
+      companyName: '',
+      location: '',
+      role: '',
+      roleDescription: '',
+      tasks: [],
+      fromYr: '',
+      toYr: '',
+    };
+
+    this.setState({
+      workExperience: [...this.state.workExperience, newValue],
+    });
+  };
+
+  removeWorkField = (id) => {
+    const list = this.state.workExperience;
+    const updatedWorkList = list.filter((item) => item.id != id);
+
+    this.setState(
+      {
+        workExperience: updatedWorkList,
+      },
+      () => saveToLocalStorage('state', this.state)
+    );
+  };
+
+  // Utility Functions
   removeAllState = () => {
     clearStorage();
     this.setState({ ...defaultState }, () => {
@@ -135,7 +167,12 @@ export class Main extends Component {
             addField={this.addEducField}
             removeField={this.removeEducField}
           />
-          {/* Practical Experience */}
+          <Work
+            workExperience={this.state.workExperience}
+            // workInputHandler={this.workInputHandler}
+            addField={this.addWorkField}
+            removeField={this.removeWorkField}
+          ></Work>
 
           <button
             type="button"
@@ -145,6 +182,7 @@ export class Main extends Component {
             Clear Form
           </button>
         </form>
+
         <Resume data={this.state}></Resume>
       </main>
     );
