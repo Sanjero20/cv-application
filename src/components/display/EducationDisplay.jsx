@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
+import { checkYear, checkLocation } from '../../modules/check';
 
 class EducationDisplay extends Component {
   constructor(props) {
     super(props);
-  }
-
-  checkYear(from, to) {
-    if (from || to) {
-      return `${from} - ${to}`;
-    }
-  }
-
-  checkLocation(location) {
-    if (location) {
-      return <span className="location"> - {location}</span>;
-    }
   }
 
   renderEducation = (list) => {
@@ -22,9 +11,9 @@ class EducationDisplay extends Component {
       <div key={info.id}>
         <p className="flex">
           <strong>
-            {info.schoolName} {this.checkLocation(info.location)}
+            {info.schoolName} {checkLocation(info.location)}
           </strong>
-          <span>{this.checkYear(info.fromYr, info.toYr)}</span>
+          <span>{checkYear(info.fromYr, info.toYr)}</span>
         </p>
         <p> {info.course} </p>
       </div>
@@ -38,12 +27,12 @@ class EducationDisplay extends Component {
     if (education.length <= 0) return;
 
     return (
-      <div className="resume-education">
+      <section className="resume-education">
         <h4>
           Education <hr />
         </h4>
         <div className="education-list">{this.renderEducation(education)}</div>
-      </div>
+      </section>
     );
   }
 }
