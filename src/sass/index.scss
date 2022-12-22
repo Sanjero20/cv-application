@@ -1,6 +1,8 @@
 @import './abstracts/variables';
 @import './abstracts/mixins';
 
+@import './others/scrollbar';
+
 // Import component stylings
 @import './components/others';
 @import './components/form';
