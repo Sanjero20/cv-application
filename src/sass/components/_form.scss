@@ -1,0 +1,8 @@
+@import '../abstracts/variables';
+
+.Form {
+  width: $container-size;
+  height: 100vh;
+  box-shadow: $shadow;
+  background-color: white;
+}

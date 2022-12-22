@@ -1,0 +1,12 @@
+// Utility class / mixins
+
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flexSpace($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+}

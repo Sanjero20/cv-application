@@ -1,0 +1,17 @@
+@import '../abstracts/variables';
+
+header,
+footer {
+  background-color: $darker-bg;
+  text-align: center;
+  width: 100%;
+  color: white;
+  padding: $gap-m;
+  box-sizing: border-box;
+}
+
+header {
+  color: $primary;
+  font-size: $font-l;
+  font-weight: bold;
+}

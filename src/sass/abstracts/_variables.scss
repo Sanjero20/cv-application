@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+// Colors
+$background: #282a37;
+$primary: #01cc8e;
+$darker-bg: darken($background, 10%);
+
+// Spacing
+$gap-s: 0.25em;
+$gap-m: 0.5em;
+$gap-l: 1em;
+$gap-xl: 1.5em;
+$gap-xxl: 2em;
+
+// Fonts
+$Poppins: 'Poppins', sans-serif;
+
+$font-l: 2em;
+$font-m: 1em;
+$font-s: 0.5em;
+
+$round-corners: 5px;
+
+// Container size
+$container-size: min(90%, 800px);
+
+// Box Shadow
+$shadow: rgba(0, 0, 0, 0.5) 2.4px 2.4px 3.2px;
