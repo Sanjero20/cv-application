@@ -4,6 +4,8 @@
 $background: #282a37;
 $primary: #01cc8e;
 $darker-bg: darken($background, 10%);
+$gray: #dcdcdc;
+$red: #f14e4e;
 
 // Spacing
 $gap-s: 0.25em;
@@ -23,7 +25,7 @@ $font-s: 0.5em;
 $round-corners: 5px;
 
 // Container size
-$container-size: min(90%, 800px);
+$container-size: min(90%, 700px);
 
 // Box Shadow
 $shadow: rgba(0, 0, 0, 0.5) 2.4px 2.4px 3.2px;

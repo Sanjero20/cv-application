@@ -24,12 +24,13 @@ function App() {
 
   // Lifecycle
   useEffect(() => {
-    return console.table(personalData);
+    // return console.table(personalData);
   });
 
   return (
     <>
       <Header />
+
       <Form
         personData={personalData}
         educationData={educationData}
@@ -37,6 +38,7 @@ function App() {
         //
         inputHandler={inputHandler}
       />
+
       <Footer />
     </>
   );

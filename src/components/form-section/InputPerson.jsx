@@ -6,7 +6,7 @@ function InputPerson(props) {
 
   return (
     <fieldset>
-      <legend>Personal Details</legend>
+      <h1 className="title">Personal Details</h1>
 
       <div>
         <label>Name</label>

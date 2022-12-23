@@ -4,36 +4,99 @@
 $bd-thicc: 1px solid rgb(255, 255, 255, 0.5);
 
 .Form {
+  @include flex(column);
+  box-sizing: border-box;
   width: $container-size;
-  height: 100vh;
   color: white;
+  gap: $gap-l;
 }
 
 fieldset {
+  position: relative;
   border-radius: $round-corners;
-  border: $bd-thicc;
-  padding: 0 $gap-l;
-  padding-bottom: $gap-l;
+  border: 0;
 
-  legend {
-    font-size: 1.25em;
+  .title {
     text-align: center;
-    padding: 0 0.5em;
-    border-radius: inherit;
+    border-bottom: 1px solid white;
+    margin-bottom: $gap-s;
   }
 
   div {
     @include flex(column);
+    width: 100%;
   }
 }
 
-input,
-textarea {
-  border: 0;
-  border-radius: $round-corners;
-  padding: $gap-s;
+// Clear and Add Button Field
+.buttons {
+  padding-top: $gap-s;
+  @include flex;
+  justify-content: center;
+  gap: 1em;
+
+  button {
+    border-radius: $round-corners;
+    background-color: $gray;
+    font-size: 11px;
+    font-weight: bold;
+    width: 125px;
+    padding: 0.5em 1em;
+    border: 0;
+
+    &.btn-clear:hover {
+      background-color: $red;
+      color: white;
+    }
+
+    &.btn-add:hover {
+      background-color: $primary;
+    }
+  }
 }
 
-textarea {
-  resize: none;
+// Remove Button
+.btn-x {
+  border: 0;
+  margin: 0 auto;
+  background-color: $red;
+  color: white;
+  width: 100px;
+  padding: 0.25em 0.75em;
+  border-radius: $round-corners;
+
+  &:hover {
+    background-color: darken($red, 10%);
+  }
+}
+
+// Input Fields (divs that were rendered using loops)
+.render-field {
+  @include flex(column);
+  gap: $gap-m;
+}
+
+.input-fields {
+  border-radius: $round-corners;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 0.5em;
+  @include flex(column);
+  gap: $gap-m;
+
+  .wrap {
+    flex-direction: row;
+    gap: $gap-m;
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .wrap {
+    flex-direction: column !important;
+  }
 }
