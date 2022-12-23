@@ -1,3 +1,7 @@
+function clearStorage() {
+  window.localStorage.clear();
+}
+
 function saveToLocalStorage(key, item) {
   const converted = JSON.stringify(item);
   window.localStorage.setItem(key, converted);
@@ -5,11 +9,15 @@ function saveToLocalStorage(key, item) {
 
 function retrieveFromLocal(key) {
   const object = window.localStorage.getItem(key);
-  return JSON.parse(object);
+  return object ? JSON.parse(object) : [];
 }
 
-function clearStorage() {
-  window.localStorage.clear();
+function saveAll(datas) {
+  const { personalData, educationData, workExpData } = datas;
+
+  saveToLocalStorage('personalData', personalData);
+  saveToLocalStorage('educationData', educationData);
+  saveToLocalStorage('workData', workExpData);
 }
 
-export { saveToLocalStorage, retrieveFromLocal, clearStorage };
+export { saveAll, retrieveFromLocal, clearStorage };
