@@ -1,9 +1,10 @@
 import React from 'react';
+import InputPerson from './form-section/InputPerson';
 
-function Form() {
+function Form({ personData, educationData, workExpData, inputHandler }) {
   return (
     <section className="Form">
-      <form></form>
+      <InputPerson data={personData} inputHandler={inputHandler} />
     </section>
   );
 }

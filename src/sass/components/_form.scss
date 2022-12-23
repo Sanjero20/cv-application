@@ -1,8 +1,39 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+$bd-thicc: 1px solid rgb(255, 255, 255, 0.5);
 
 .Form {
   width: $container-size;
   height: 100vh;
-  box-shadow: $shadow;
-  background-color: white;
+  color: white;
+}
+
+fieldset {
+  border-radius: $round-corners;
+  border: $bd-thicc;
+  padding: 0 $gap-l;
+  padding-bottom: $gap-l;
+
+  legend {
+    font-size: 1.25em;
+    text-align: center;
+    padding: 0 0.5em;
+    border-radius: inherit;
+  }
+
+  div {
+    @include flex(column);
+  }
+}
+
+input,
+textarea {
+  border: 0;
+  border-radius: $round-corners;
+  padding: $gap-s;
+}
+
+textarea {
+  resize: none;
 }
