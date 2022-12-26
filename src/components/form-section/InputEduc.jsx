@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Buttons from './Buttons';
+
 function InputEduc(props) {
-  const { data, addEducation } = props;
+  const { data, addEducation, clearEducation } = props;
 
   return (
     <fieldset className="education">
@@ -9,12 +11,7 @@ function InputEduc(props) {
 
       <div className="render-field">{renderInputField(data, props)}</div>
 
-      <section className="buttons">
-        <button className="btn-clear">Clear All </button>
-        <button className="btn-add" onClick={addEducation}>
-          Add Education
-        </button>
-      </section>
+      <Buttons clear={clearEducation} add={addEducation}></Buttons>
     </fieldset>
   );
 }
@@ -81,7 +78,11 @@ function renderInputField(list, props) {
       </div>
 
       {/* Remove Button */}
-      <button className="btn-x" onClick={() => removeEducation(education.id)}>
+      <button
+        type="button"
+        className="btn-x"
+        onClick={() => removeEducation(education.id)}
+      >
         Remove
       </button>
     </div>

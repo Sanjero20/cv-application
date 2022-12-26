@@ -10,7 +10,11 @@ import {
   clearStorage,
 } from './modules/saveToLocal.js';
 
-import { defaultPersonData, defaultEducationData } from './data/defaultData';
+import {
+  defaultPersonData,
+  defaultEducationData,
+  defaultWorkExpData,
+} from './data/defaultData';
 
 let person = retrieveFromLocal('personalData');
 const education = retrieveFromLocal('educationData');
@@ -54,6 +58,17 @@ function App() {
     setEducationData([...list]);
   };
 
+  const clearEducationField = () => {
+    console.log('lol');
+    setEducationData([]);
+  };
+
+  // Work Event Handler
+  const addWork = () => {
+    const newData = defaultWorkExpData();
+    setWorkExpData([...workExpData, newData]);
+  };
+
   // Lifecycle
   useEffect(() => {
     const combined = { personalData, educationData, workExpData };
@@ -72,9 +87,13 @@ function App() {
           // Input Handlers
           inputHandler={inputHandler}
           educationInputHandler={educationInputHandler}
-          // Add or Remove Handlers
+          // Education
           addEducation={addEducation}
           removeEducation={removeEducation}
+          clearEducation={clearEducationField}
+          // Work
+          addWork={''}
+          removeWork={''}
         />
       </main>
 

@@ -12,16 +12,19 @@ function Form(props) {
   // Event Handlers
   const { addEducation, removeEducation } = props;
 
+  const { clearEducation } = props;
+
   return (
-    <section className="Form">
+    <form className="Form" autoComplete="off">
       <InputPerson data={personData} inputHandler={inputHandler} />
       <InputEduc
         data={educationData}
         inputHandler={educationInputHandler}
         addEducation={addEducation}
         removeEducation={removeEducation}
+        clearEducation={clearEducation}
       ></InputEduc>
-    </section>
+    </form>
   );
 }
 
