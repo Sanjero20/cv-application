@@ -1,0 +1,71 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// Personal Info
+.Resume {
+  width: $container-size;
+  height: 11in;
+  background-color: white;
+  box-sizing: border-box;
+  padding: $gap-l;
+
+  @include flex(column);
+  gap: $gap-s;
+
+  .name {
+    line-height: 1em;
+  }
+
+  // Personal details (email, address, contact)
+  ul {
+    list-style-type: none;
+    @include flex;
+    gap: $gap-s;
+
+    li {
+      font-size: 0.65em;
+    }
+  }
+
+  p {
+    font-size: 12px;
+  }
+}
+
+.Resume {
+  .section-title {
+    border-bottom: 2px solid black;
+    line-height: 1.3em;
+    margin-bottom: $gap-s;
+  }
+}
+
+// Education Info
+.education,
+.experience {
+  .details {
+    @include flex(column);
+    gap: $gap-m;
+    line-height: 0.9em;
+  }
+
+  .flex-space {
+    @include flexSpace();
+
+    .name {
+      font-weight: bold;
+
+      span {
+        color: gray;
+        font-style: italic;
+      }
+    }
+  }
+}
+// Experience
+.Resume {
+  .role,
+  .desc {
+    margin-left: $gap-l;
+  }
+}
