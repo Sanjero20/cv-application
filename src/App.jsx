@@ -14,13 +14,13 @@ import {
   defaultPersonData,
   defaultEducationData,
   defaultWorkExpData,
-} from './data/defaultData';
+} from './modules/defaultData';
 
 let person = retrieveFromLocal('personalData');
 const education = retrieveFromLocal('educationData');
 const work = retrieveFromLocal('workData');
 
-//
+// If Array, Create a default object structure
 if (Array.isArray(person)) {
   person = defaultPersonData();
 }
