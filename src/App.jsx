@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Form from './components/Form';
 
+import Resume from './components/Resume';
+
 import {
   saveAll,
   retrieveFromLocal,
@@ -26,9 +28,18 @@ if (Array.isArray(person)) {
 }
 
 function App() {
+  // State
+  const [preview, setPreview] = useState(false);
+
+  // Form Props
   const [personalData, setPersonalData] = useState(person);
   const [educationData, setEducationData] = useState(education);
   const [workExpData, setWorkExpData] = useState(work);
+
+  // Preview Handler
+  const togglePreview = () => {
+    setPreview(!preview);
+  };
 
   // Personal Event Handler
   const inputHandler = (e) => {
@@ -85,6 +96,13 @@ function App() {
     setWorkExpData([]);
   };
 
+  // CLEAR ALL
+  const clearAll = () => {
+    setPersonalData(defaultPersonData());
+    setEducationData([]);
+    setWorkExpData([]);
+  };
+
   // Lifecycle
   useEffect(() => {
     // This will save all data on every render / change
@@ -94,26 +112,34 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header preview={preview} toggle={togglePreview} clearAll={clearAll} />
 
       <main>
-        <Form
-          personData={personalData}
-          educationData={educationData}
-          workExpData={workExpData}
-          // Input Handlers
-          inputHandler={inputHandler}
-          educationInputHandler={educationInputHandler}
-          workInputHandler={workInputHandler}
-          // Education
-          addEducation={addEducation}
-          removeEducation={removeEducation}
-          clearEducation={clearEducationField}
-          // Work
-          addWork={addWork}
-          removeWork={removeWork}
-          clearWork={clearWork}
-        />
+        {!preview ? (
+          <Form
+            personData={personalData}
+            educationData={educationData}
+            workExpData={workExpData}
+            // Input Handlers
+            inputHandler={inputHandler}
+            educationInputHandler={educationInputHandler}
+            workInputHandler={workInputHandler}
+            // Education
+            addEducation={addEducation}
+            removeEducation={removeEducation}
+            clearEducation={clearEducationField}
+            // Work
+            addWork={addWork}
+            removeWork={removeWork}
+            clearWork={clearWork}
+          />
+        ) : (
+          <Resume
+            personData={personalData}
+            educationData={educationData}
+            workExpData={workExpData}
+          />
+        )}
       </main>
 
       <Footer />

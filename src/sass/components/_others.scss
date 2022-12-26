@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 header,
 footer {
@@ -10,13 +11,55 @@ footer {
 }
 
 header {
+  height: 60px;
   color: $primary;
-  font-size: 2em;
-  font-weight: bold;
-  padding: $gap-s;
+  @include flex;
+  justify-content: center;
+
+  div {
+    width: $container-size;
+    @include flexSpace;
+    align-items: center;
+
+    .page-title {
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
+  .btns {
+    display: flex;
+    gap: $gap-m;
+  }
+
+  .btn {
+    border-radius: $round-corners;
+    font-weight: bold;
+    border: 0;
+    width: 75px;
+    height: 2em;
+  }
 }
 
 footer {
   padding: $gap-m;
   margin-top: $gap-m;
+}
+
+@media only screen and (max-width: 500px) {
+  .page-title {
+    font-size: 1.5em !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 1em -1.5em;
+}
+
+@media print {
+  header,
+  footer {
+    display: none;
+  }
 }

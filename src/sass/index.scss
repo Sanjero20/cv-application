@@ -6,7 +6,7 @@
 // Import component stylings
 @import './components/others';
 @import './components/form';
-
+@import './components/resume';
 * {
   padding: 0;
   margin: 0;
@@ -32,4 +32,5 @@ main {
   min-height: 80vh;
   @include flex;
   justify-content: center;
+  box-sizing: border-box;
 }
