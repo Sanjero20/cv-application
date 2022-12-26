@@ -1,6 +1,8 @@
 import React from 'react';
 
 function Experience({ data }) {
+  if (data.length <= 0) return;
+
   const renderInfo = () => {
     return data.map((info, index) => (
       <div key={index}>

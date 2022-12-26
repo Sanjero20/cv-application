@@ -1,6 +1,8 @@
 import React from 'react';
 
 function Education({ data }) {
+  if (data.length <= 0) return;
+
   const renderEduc = () => {
     return data.map((info, index) => (
       <div key={index}>
