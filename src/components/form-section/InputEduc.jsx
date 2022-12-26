@@ -11,7 +11,11 @@ function InputEduc(props) {
 
       <div className="render-field">{renderInputField(data, props)}</div>
 
-      <Buttons clear={clearEducation} add={addEducation}></Buttons>
+      <Buttons
+        clear={clearEducation}
+        add={addEducation}
+        name="Education"
+      ></Buttons>
     </fieldset>
   );
 }

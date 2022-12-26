@@ -10,7 +10,7 @@ function InputWork(props) {
 
       <div className="render-field">{renderInputField(data, props)}</div>
 
-      <Buttons clear={clearWork} add={addWork} />
+      <Buttons clear={clearWork} add={addWork} name="Work" />
     </fieldset>
   );
 }
