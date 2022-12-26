@@ -29,7 +29,7 @@ fieldset {
 
 // Clear and Add Button Field
 .buttons {
-  padding-top: $gap-s;
+  padding-top: $gap-m;
   @include flex;
   justify-content: center;
   gap: 1em;

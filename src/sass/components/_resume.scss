@@ -69,3 +69,20 @@
     margin-left: $gap-l;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .Resume {
+    *,
+    p {
+      font-size: smaller !important;
+    }
+
+    .description {
+      font-size: 6px !important;
+    }
+
+    transform: scale(0.9);
+    width: 100%;
+    height: 80vh;
+  }
+}

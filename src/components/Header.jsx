@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header({ preview, toggle }) {
+function Header({ preview, toggle, clearAll }) {
   let state;
 
   if (preview) {
@@ -13,10 +13,23 @@ function Header({ preview, toggle }) {
     <header>
       <div>
         <h1 className="page-title">CV Creator</h1>
-        <button className="btn-preview" onClick={toggle}>
-          {' '}
-          {state}{' '}
-        </button>
+
+        <section className="btns ">
+          {preview ? (
+            <button className="btn" onClick={() => print()}>
+              Save
+            </button>
+          ) : (
+            <button className="btn" onClick={clearAll}>
+              Clear All
+            </button>
+          )}
+
+          {/* Always Show */}
+          <button className="btn btn-preview" onClick={toggle}>
+            {state}
+          </button>
+        </section>
       </div>
     </header>
   );

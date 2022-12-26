@@ -29,7 +29,7 @@ if (Array.isArray(person)) {
 
 function App() {
   // State
-  const [preview, setPreview] = useState(true);
+  const [preview, setPreview] = useState(false);
 
   // Form Props
   const [personalData, setPersonalData] = useState(person);
@@ -96,6 +96,13 @@ function App() {
     setWorkExpData([]);
   };
 
+  // CLEAR ALL
+  const clearAll = () => {
+    setPersonalData(defaultPersonData());
+    setEducationData([]);
+    setWorkExpData([]);
+  };
+
   // Lifecycle
   useEffect(() => {
     // This will save all data on every render / change
@@ -105,7 +112,7 @@ function App() {
 
   return (
     <>
-      <Header preview={preview} toggle={togglePreview} />
+      <Header preview={preview} toggle={togglePreview} clearAll={clearAll} />
 
       <main>
         {!preview ? (

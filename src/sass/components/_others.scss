@@ -27,12 +27,16 @@ header {
     }
   }
 
-  .btn-preview {
+  .btns {
+    display: flex;
+    gap: $gap-m;
+  }
+
+  .btn {
     border-radius: $round-corners;
     font-weight: bold;
     border: 0;
-    padding: 0.25em 1em;
-    width: 100px;
+    width: 75px;
     height: 2em;
   }
 }
@@ -45,5 +49,17 @@ footer {
 @media only screen and (max-width: 500px) {
   .page-title {
     font-size: 1.5em !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 1em -1.5em;
+}
+
+@media print {
+  header,
+  footer {
+    display: none;
   }
 }
