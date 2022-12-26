@@ -1,18 +1,23 @@
 import React from 'react';
 import InputPerson from './form-section/InputPerson';
 import InputEduc from './form-section/InputEduc';
+import InputWork from './form-section/InputWork';
 
 function Form(props) {
   // Datas
   const { personData, educationData, workExpData } = props;
 
-  // Input Handlers
-  const { inputHandler, educationInputHandler } = props;
+  // Personal Handlers
+  const { inputHandler } = props;
 
-  // Event Handlers
-  const { addEducation, removeEducation } = props;
+  // Education Event Handlers
+  const { educationInputHandler, addEducation, removeEducation } = props;
 
-  const { clearEducation } = props;
+  // Work Event Handlers
+  const { workInputHandler, addWork, removeWork } = props;
+
+  // Clear All methods
+  const { clearEducation, clearWork } = props;
 
   return (
     <form className="Form" autoComplete="off">
@@ -23,7 +28,15 @@ function Form(props) {
         addEducation={addEducation}
         removeEducation={removeEducation}
         clearEducation={clearEducation}
-      ></InputEduc>
+      />
+
+      <InputWork
+        data={workExpData}
+        inputHandler={workInputHandler}
+        addWork={addWork}
+        removeWork={removeWork}
+        clearWork={clearWork}
+      />
     </form>
   );
 }

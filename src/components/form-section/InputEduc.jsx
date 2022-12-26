@@ -20,7 +20,7 @@ function renderInputField(list, props) {
   const { inputHandler, removeEducation } = props;
 
   return list.map((education, index) => (
-    <div className="input-fields" key={index}>
+    <div className="input-fields" key={education.id}>
       <div className="inputs">
         {/* School Name */}
         <div>

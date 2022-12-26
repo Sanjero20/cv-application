@@ -18,7 +18,7 @@ import {
 
 let person = retrieveFromLocal('personalData');
 const education = retrieveFromLocal('educationData');
-const work = retrieveFromLocal('workExpData');
+const work = retrieveFromLocal('workData');
 
 //
 if (Array.isArray(person)) {
@@ -59,7 +59,6 @@ function App() {
   };
 
   const clearEducationField = () => {
-    console.log('lol');
     setEducationData([]);
   };
 
@@ -69,8 +68,26 @@ function App() {
     setWorkExpData([...workExpData, newData]);
   };
 
+  const removeWork = (id) => {
+    const list = workExpData.filter((data) => data.id != id);
+    setWorkExpData([...list]);
+  };
+
+  const workInputHandler = (e, index) => {
+    const { name, value } = e.target;
+    const list = workExpData;
+    // Set value of the data based on in its index and key
+    list[index][name] = value;
+    setWorkExpData([...list]);
+  };
+
+  const clearWork = () => {
+    setWorkExpData([]);
+  };
+
   // Lifecycle
   useEffect(() => {
+    // This will save all data on every render / change
     const combined = { personalData, educationData, workExpData };
     return saveAll(combined);
   });
@@ -87,13 +104,15 @@ function App() {
           // Input Handlers
           inputHandler={inputHandler}
           educationInputHandler={educationInputHandler}
+          workInputHandler={workInputHandler}
           // Education
           addEducation={addEducation}
           removeEducation={removeEducation}
           clearEducation={clearEducationField}
           // Work
-          addWork={''}
-          removeWork={''}
+          addWork={addWork}
+          removeWork={removeWork}
+          clearWork={clearWork}
         />
       </main>
 

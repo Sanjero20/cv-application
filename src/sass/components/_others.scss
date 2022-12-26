@@ -6,7 +6,6 @@ footer {
   text-align: center;
   width: 100%;
   color: white;
-  padding: $gap-m;
   box-sizing: border-box;
 }
 
@@ -14,4 +13,10 @@ header {
   color: $primary;
   font-size: 2em;
   font-weight: bold;
+  padding: $gap-s;
+}
+
+footer {
+  padding: $gap-m;
+  margin-top: $gap-m;
 }

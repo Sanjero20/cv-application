@@ -20,6 +20,7 @@ fieldset {
     text-align: center;
     border-bottom: 2px solid white;
     margin-bottom: $gap-s;
+    line-height: 1.25em;
   }
 
   div {
@@ -98,5 +99,6 @@ fieldset {
 @media only screen and (max-width: 500px) {
   .wrap {
     flex-direction: column !important;
+    gap: 0 !important;
   }
 }
